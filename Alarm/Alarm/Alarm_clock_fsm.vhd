@@ -167,7 +167,7 @@ lcd_al_snooze<='1';
 ringing_out<='0';
              
                
-   when others =>
+   when  =>
                 led_alarm_act<='0';
 led_alarm_ring<='0';
 lcd_al_act<='0';
