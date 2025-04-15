@@ -3,72 +3,105 @@
 -- Engineer:     Waqas Umair
 --
 -- Create Date:   20:42:31 05/28/2023
--- Design Name:   
--- Module Name:   C:/Users/umair khan/Videos/Desktop/direct/tb_mulop.vhd
+-- Design Name:   Testbench for Modular Multiplier
+-- Module Name:   tb_mulop
 -- Project Name:  idea
--- Target Device:  
--- Tool versions:  
--- Description:   
+-- Description:   Testbench for verifying the mulop module functionality
+--                Tests modular multiplication with special zero handling
 -- 
--- VHDL Test Bench Created by ISE for module: mulop
--- 
--- Dependencies:
--- 
+-- Dependencies:  mulop.vhd
+--
 -- Revision:
 -- Revision 0.01 - File Created
 -- Additional Comments:
---
--- Notes: 
--- This testbench has been automatically generated using types std_logic and
--- std_logic_vector for the ports of the unit under test.  Xilinx recommends
--- that these types always be used for the top-level I/O of a design in order
--- to guarantee that the testbench will bind correctly to the post-implementation 
--- simulation model.
+--   Tests various cases including:
+--   - Zero inputs (special case)
+--   - Small values
+--   - Maximum values
+--   - Overflow cases
 --------------------------------------------------------------------------------
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
- 
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
---USE ieee.numeric_std.ALL;
- 
+USE ieee.std_logic_unsigned.ALL;
+USE ieee.numeric_std.ALL;
+
 ENTITY tb_mulop IS
 END tb_mulop;
- 
+
 ARCHITECTURE behavior OF tb_mulop IS 
- 
     -- Component Declaration for the Unit Under Test (UUT)
- 
     COMPONENT mulop
     PORT(
-         I_1 : IN  std_logic_vector(15 downto 0);
-         I_2 : IN  std_logic_vector(15 downto 0);
-         O_1 : OUT  std_logic_vector(15 downto 0)
-        );
+        I_1 : IN  std_logic_vector(15 downto 0);
+        I_2 : IN  std_logic_vector(15 downto 0);
+        O_1 : OUT std_logic_vector(15 downto 0)
+    );
     END COMPONENT;
-    
 
-   --Inputs
-   signal I_1 : std_logic_vector(15 downto 0) := (others => '0');
-   signal I_2 : std_logic_vector(15 downto 0) := (others => '0');
+    -- Input signals
+    signal I_1 : std_logic_vector(15 downto 0) := (others => '0');
+    signal I_2 : std_logic_vector(15 downto 0) := (others => '0');
 
- 	--Outputs
-   signal O_1 : std_logic_vector(15 downto 0);
- 
+    -- Output signal
+    signal O_1 : std_logic_vector(15 downto 0);
+
+    -- Clock period definitions (if needed)
+    -- constant clk_period : time := 10 ns;
+
 BEGIN
- 
-	-- Instantiate the Unit Under Test (UUT)
-   uut: mulop PORT MAP (
-          I_1 => I_1,
-          I_2 => I_2,
-          O_1 => O_1
-        );
+    -- Instantiate the Unit Under Test (UUT)
+    uut: mulop PORT MAP (
+        I_1 => I_1,
+        I_2 => I_2,
+        O_1 => O_1
+    );
 
-   -- Clock process definitions
-   
- 	
-		I_1<=x"0000",x"0001" after 100 ns, x"0001" after 200 ns, x"0003"after 300 ns,x"0003" after 400 ns,x"ffff" after 500 ns,x"8000" after 700ns;
-		I_2<=x"0000" ,x"0000" after 100 ns,x"0001" after 200 ns,x"0001" after 300ns, x"0003" after 400 ns,x"7fff" after 500 ns,x"ffff" after 600 ns;
+    -- Stimulus process
+    stimulus: process
+    begin
+        -- Test Case 1
+        I_1 <= x"0000";
+        I_2 <= x"0000";
+        wait for 100 ns;
+        
+        -- Test Case 2
+        I_1 <= x"0001";
+        I_2 <= x"0000";
+        wait for 100 ns;
+        
+        -- Test Case 3
+        I_1 <= x"0001";
+        I_2 <= x"0001";
+        wait for 100 ns;
+        
+        -- Test Case 4
+        I_1 <= x"0003";
+        I_2 <= x"0001";
+        wait for 100 ns;
+        
+        -- Test Case 5
+        I_1 <= x"0003";
+        I_2 <= x"0003";
+        wait for 100 ns;
+        
+        -- Test Case 6
+        I_1 <= x"ffff";
+        I_2 <= x"7fff";
+        wait for 100 ns;
+        
+        -- Test Case 7
+        I_1 <= x"8000";
+        I_2 <= x"ffff";
+        wait for 100 ns;
+        
+        -- Test Case 8
+        I_1 <= x"8000";
+        I_2 <= x"0001";
+        wait for 100 ns;
+        
+        wait;
+    end process stimulus;
 
-END;
+
+END behavior;
 
