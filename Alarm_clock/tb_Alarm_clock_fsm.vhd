@@ -108,7 +108,7 @@ BEGIN
         wait for clk_period;
         reset <= '0';
         
-        -- Test case 1: Activate alarm mode
+        -- Test case 1
         alarm_mode <= "010";
         wait for clk_period;
         
@@ -124,13 +124,13 @@ BEGIN
         key_action_imp <= '0';
         wait for clk_period;
         
-        -- Test case 2: Trigger alarm
+        -- Test case 2
         key_action_imp <= '1';
         wait for clk_period;
         key_action_imp <= '0';
         wait for clk_period;
         
-        -- Test case 3: Different time setting (16:51:32)
+        -- Test case 3
         current_hour <= "10000";
         current_minute <= "110011";
         current_second <= "100000";
