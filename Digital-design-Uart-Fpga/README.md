@@ -12,5 +12,5 @@ This project enables serial communication between the **Nexys 4 DDR FPGA** and *
 ## File Structure
 
 - `uart_transmitter.v`: Verilog UART TX module
-- `cConstraints.xdc`: XDC file for pin assignments
+- `Constraints.xdc`: XDC file for pin assignments
 - `arduino_receiver.ino`: Arduino sketch to display received data
