@@ -91,7 +91,7 @@ module uart_transmitter #(
                         tx_reg       <= tx_data[bit_counter];
                         baud_counter <= 0;
 
-                        if (bit_counter == 3'd7)
+                        if (bit_counter == 3'b111)
                             current_state <= STOP_BIT;
                         else
                             bit_counter <= bit_counter + 1;
@@ -103,7 +103,7 @@ module uart_transmitter #(
                 STOP_BIT: begin
                     if (baud_counter == BAUD_PERIOD - 1) begin
                         tx_reg        <= 1'b1; // Stop bit
-                        baud_counter  <= 0;
+                        baud_counter  <= 16'b0;;
                         current_state <= DONE;
                     end else begin
                         baud_counter <= baud_counter + 1;
