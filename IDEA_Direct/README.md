@@ -56,24 +56,6 @@ Once the VHDL design is implemented, it will be **synthesized and tested** on th
 
 ---
 
-## 📁 **Files Included**
-
-- `idea.vhdl`: The VHDL implementation of the IDEA encryption algorithm.
-- `testbench.vhdl`: A testbench to simulate and verify the design.
-- `README.md`: This README file, providing an overview and instructions.
-
----
-
-## 🚦 **Running the Simulation**
-
-To run the simulation and test the IDEA design:
-
-1. **Compile the VHDL files** using XST.
-2. **Load** the `testbench.vhdl` file in ISim.
-3. **Run the simulation** and **check the results** for correctness.
-
----
-
 ## 📜 **License**
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
