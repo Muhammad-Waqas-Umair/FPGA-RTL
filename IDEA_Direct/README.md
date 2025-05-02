@@ -23,8 +23,7 @@ The encryption process uses the 52 partial keys in each round, ensuring secure d
 
 - **8 Rounds of Encryption**: Secure encryption performed in 8 rounds, each involving XOR, modular addition, and multiplication.
 - **Key Generation**: A 128-bit input key generates 52 16-bit partial keys for use across all encryption rounds.
-- **FPGA Implementation**: This design is fully implemented in **VHDL** and ready to be synthesized on the **Spartan3E FPGA**.
-- **Encryption & Decryption**: Capable of both encrypting and decrypting data using inverse keys in reverse order.
+- **FPGA Implementation**: This design is fully implemented in **VHDL** and ready to be synthesized on the **Xilinx Spartan3E FPGA**.
 
 ---
 
