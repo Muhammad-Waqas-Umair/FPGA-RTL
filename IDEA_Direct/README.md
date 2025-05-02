@@ -5,7 +5,7 @@ This repository contains the **VHDL implementation** of the **International Data
 
 ---
 
-## 🔐 **Overview**
+## **Overview**
 
 The **IDEA algorithm** encrypts four 16-bit wide blocks of plaintext simultaneously, processing them through **8 rounds of encryption** followed by a **final output transformation**. A 128-bit input key is used to generate 52 16-bit partial keys, which are essential for the encryption process.
 
@@ -19,7 +19,7 @@ The encryption process uses the 52 partial keys in each round, ensuring secure d
 
 ---
 
-## 🚀 **Features**
+## **Features**
 
 - **8 Rounds of Encryption**: Secure encryption performed in 8 rounds, each involving XOR, modular addition, and multiplication.
 - **Key Generation**: A 128-bit input key generates 52 16-bit partial keys for use across all encryption rounds.
@@ -28,7 +28,7 @@ The encryption process uses the 52 partial keys in each round, ensuring secure d
 
 ---
 
-## ⚙️ **VHDL Modules**
+## **VHDL Modules**
 
 The IDEA algorithm is structured into several **VHDL modules** that handle different operations:
 
@@ -41,18 +41,9 @@ The IDEA algorithm is structured into several **VHDL modules** that handle diffe
 
 ---
 
-## 🖥️ **Hardware Specifications**
+## **FPGA Testing**
 
-- **FPGA**: Spartan3E
-- **Synthesis Tool**: XST (VHDL/Verilog)
-- **Simulator**: ISim (VHDL/Verilog)
-- **Programming Language**: VHDL
-
----
-
-## 🛠️ **FPGA Testing**
-
-Once the VHDL design is implemented, it will be **synthesized and tested** on the Spartan3E FPGA. The test will involve encrypting and decrypting various input data sets to verify the correctness and functionality of the implementation.
+Once the VHDL design is implemented, it will be **synthesized and tested** on the Spartan3E FPGA. The test will involve encrypting input data sets to verify the correctness and functionality of the implementation.
 
 ---
 
