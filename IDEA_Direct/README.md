@@ -45,4 +45,3 @@ The IDEA algorithm is structured into several **VHDL modules** that handle diffe
 Once the VHDL design is implemented, it will be **synthesized and tested** on the Spartan3E FPGA. The test will involve encrypting input data sets to verify the correctness and functionality of the implementation.
 
 ---
-
