@@ -46,6 +46,3 @@ Once the VHDL design is implemented, it will be **synthesized and tested** on th
 
 ---
 
-## **License**
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
